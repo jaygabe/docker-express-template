@@ -2,9 +2,11 @@
   "name": "docker-express",
   "version": "1.0.0",
   "description": "Template for new express applications with TypeScript, ESLint, Prettier, and other development/testing tools preconfigured",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "concurrently": "^8.0.1",
     "nodemon": "^2.0.22"
   }
 }
